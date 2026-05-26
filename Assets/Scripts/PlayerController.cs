@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float torqueAmount = 1f;
     [SerializeField] float baseSpeed = 15f;
     [SerializeField] float boostSpeed = 20f;
+    [SerializeField] ParticleSystem powerUpParticles;
+    [SerializeField] ScoreManager scoreManager;
 
     InputAction moveAction;
     Rigidbody2D myRigidbody2D;
@@ -18,10 +20,6 @@ public class PlayerController : MonoBehaviour
 
     bool canControlPlayer = true;
 
-    ScoreManager scoreManager;
-
-    [SerializeField] ParticleSystem powerUpParticles;
-
     int activePowerUpCount;
     void Start()
     {
@@ -29,7 +27,6 @@ public class PlayerController : MonoBehaviour
         moveAction.Enable();
         myRigidbody2D = GetComponent<Rigidbody2D>();
         surfaceEffector2D = FindFirstObjectByType<SurfaceEffector2D>();
-        scoreManager = FindFirstObjectByType<ScoreManager>();
     }
     void Update()
     {

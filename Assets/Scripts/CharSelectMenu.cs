@@ -3,7 +3,8 @@ using UnityEngine;
 public class CharSelectMenu : MonoBehaviour
 {
     [SerializeField] GameObject scoreCanvas;
-    [SerializeField] GameObject charSelectCanvas;
+    [SerializeField] GameObject dinoSprite;
+    [SerializeField] GameObject frogSprite;
     void Start()
     {
         Time.timeScale = 0;        
@@ -13,6 +14,18 @@ public class CharSelectMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         scoreCanvas.SetActive(true);
-        charSelectCanvas.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    public void ChooseDino()
+    {
+        dinoSprite.SetActive(true);
+        BeginGame();
+    }
+
+    public void ChooseFrog()
+    {
+        frogSprite.SetActive(true);
+        BeginGame();
     }
 }
